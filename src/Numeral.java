@@ -26,13 +26,27 @@ public enum Numeral {
 				n -= values[i].weight;
 			}
 		}
+		System.out.println(buf.toString());
 		return buf.toString();
+		
 	}
 	
 	//method to convert Roman to Arabic
-	public static long arabic(String line){
-		//TODO
-		return 0;
+	public static String arabic(String line){
+		if( line==null) {
+			throw new IllegalArgumentException();
+		}
+
+		StringBuilder buf = new StringBuilder();
+
+		final Numeral[] values = Numeral.values();
+		
+		for(int i=0;i<values.length;i++)
+		{
+			System.out.println(values[i]);
+		}
+		
+		return buf.toString();
 	}
 	
 	//prints Arabic
@@ -47,6 +61,7 @@ public enum Numeral {
 
 	public static void main(String[] args) {
 		//TODO
+		arabic(" ");
 		System.out.println("");
 	}
 
