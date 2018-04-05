@@ -46,7 +46,7 @@ public enum Numeral {
 	}
 
 	public static void main(String[] args) {
-		//TODO
+		
 		System.out.println("What would you like to convert:(a/b)\na.Roman to Arabic numerals\nb.Arabic to Roman numerals");
 		Scanner input = new Scanner(System.in);
 		String choice = input.next();
