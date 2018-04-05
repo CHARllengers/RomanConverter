@@ -30,6 +30,7 @@ public enum Numeral {
 		return buf.toString();
 		
 	}
+	static int count=0;
 	
 	//method to convert Roman to Arabic
 	public static String arabic(String line){
@@ -37,16 +38,45 @@ public enum Numeral {
 			throw new IllegalArgumentException();
 		}
 
-		StringBuilder buf = new StringBuilder();
+	
 
 		final Numeral[] values = Numeral.values();
+		System.out.print(line);
+		int arabic=0;
+		int current=0;
+		int last=0;
 		
-		for(int i=0;i<values.length;i++)
+		for(int i=0;i<line.length();i++)
 		{
-			System.out.println(values[i]);
+			for(int j=0;j<values.length;j++)
+			{
+				if(values[j].toString().compareTo(line.substring(i, i+1)) == 0)
+				{
+					current=values[j].weight;
+					//System.out.println(current);
+					
+					if(last<current&&last!=0)//checking for extreme case
+					{
+						current-=last;	//Keeping track of the last digit
+						arabic-=last;	
+						arabic+=current;
+						last=current;  //updates Last for next Iteration(memoization)
+						current=0;
+					}
+					else
+					{
+						last=current;//update the last
+						arabic+=current;//Updating the last
+						current=0;
+						
+					}
+				}
+					
+			}
 		}
+		System.out.print(arabic);
 		
-		return buf.toString();
+		return null;
 	}
 	
 	//prints Arabic
@@ -61,7 +91,7 @@ public enum Numeral {
 
 	public static void main(String[] args) {
 		//TODO
-		arabic(" ");
+		arabic("XLIV");
 		System.out.println("");
 	}
 
