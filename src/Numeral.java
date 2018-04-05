@@ -1,6 +1,8 @@
+
 import java.util.*;
 
 public enum Numeral {
+
 
 	I(1), IV(4), V(5), IX(9), X(10), XL(40), L(50), XC(90), C(100), CD(400), D(500), CM(900), M(1000);
 	int weight;
@@ -42,9 +44,46 @@ public enum Numeral {
 	}
 
 	//method to convert Roman to Arabic
-	public static long arabic(String line){
+		public static int arabic(String line){
 
-		//TODO
+	
+
+		final Numeral[] values = Numeral.values();
+		System.out.print(line);
+		int arabic=0;
+		int current=0;
+		int last=0;
+		
+		for(int i=0;i<line.length();i++)
+		{
+			for(int j=0;j<values.length;j++)
+			{
+				if(values[j].toString().compareTo(line.substring(i, i+1)) == 0)
+				{
+					current=values[j].weight;
+					//System.out.println(current);
+					
+					if(last<current&&last!=0)//checking for extreme case
+					{
+						current-=last;	//Keeping track of the last digit
+						arabic-=last;	
+						arabic+=current;
+						last=current;  //updates Last for next Iteration(memoization)
+						current=0;
+					}
+					else
+					{
+						last=current;//update the last
+						arabic+=current;//Updating the last
+						current=0;
+						
+					}
+				}
+					
+			}
+		}
+		System.out.print(arabic);
+		
 		return 0;
 	}
 
@@ -84,4 +123,3 @@ public enum Numeral {
 	}
 
 }
-
