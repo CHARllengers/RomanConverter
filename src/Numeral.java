@@ -48,7 +48,7 @@ public enum Numeral {
 
 	
 
-		final Numeral[] values = Numeral.values();
+		
 		System.out.print(line);
 		int arabic=0;
 		int current=0;
