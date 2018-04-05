@@ -1,7 +1,7 @@
 import java.util.*;
 
 public enum Numeral {
-	
+
 	I(1), IV(4), V(5), IX(9), X(10), XL(40), L(50), XC(90), C(100), CD(400), D(500), CM(900), M(1000);
 	int weight;
 
@@ -28,18 +28,18 @@ public enum Numeral {
 		}
 		return buf.toString();
 	}
-	
+
 	//method to convert Roman to Arabic
 	public static long arabic(String line){
 		//TODO
 		return 0;
 	}
-	
+
 	//prints Arabic
 	public static void RomantoArabic(String n) {
 		System.out.println(n + " = " + arabic(n));
 	}
-	
+
 	//prints Roman
 	public static void ArabictoRoman(long n) {
 		System.out.println(n + " = " + roman(n));
@@ -47,7 +47,20 @@ public enum Numeral {
 
 	public static void main(String[] args) {
 		//TODO
-		System.out.println("");
+		System.out.println("What would you like to convert:(a/b)\na.Roman to Arabic numerals\nb.Arabic to Roman numerals");
+		Scanner input = new Scanner(System.in);
+		String choice = input.next();
+		if(choice.compareTo("a") == 0){
+			System.out.print("Insert Roman Numerals:");
+			String romans = input.next();
+			RomantoArabic(romans);
+		}else if(choice.compareTo("b") == 0){
+			System.out.print("Insert Arabic Numerals:");
+			long arabics = input.nextLong();
+			ArabictoRoman(arabics);
+		}else{
+			System.out.println("goodbye");
+		}
 	}
 
 }
