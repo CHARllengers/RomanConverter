@@ -10,6 +10,7 @@ public enum Numeral {
 	}
 	final static Numeral[] values = Numeral.values();
 
+	//Checks if the Roman numerals inserted are valid
 	public static boolean isRoman(String n){
 
 		for(int i = 0; i < n.length(); i++){
@@ -59,7 +60,7 @@ public enum Numeral {
 
 	public static void main(String[] args) {
 
-		System.out.println("What would you like to convert:(a/b)\n"
+		System.out.println("What would you like to convert:(a/b)\n\n"
 				+ "a.Roman to Arabic numerals\nb.Arabic to Roman numerals");
 		Scanner input = new Scanner(System.in);
 		String choice = input.next();
