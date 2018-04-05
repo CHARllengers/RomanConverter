@@ -1,3 +1,4 @@
+
 import java.util.*;
 
 public enum Numeral {
@@ -43,7 +44,7 @@ public enum Numeral {
 	}
 
 	//method to convert Roman to Arabic
-		public static long arabic(String line){
+		public static int arabic(String line){
 
 	
 
@@ -83,8 +84,6 @@ public enum Numeral {
 		}
 		System.out.print(arabic);
 		
-		return null;
-		//TODO
 		return 0;
 	}
 
@@ -124,4 +123,3 @@ public enum Numeral {
 	}
 
 }
-
